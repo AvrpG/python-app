@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - src/**
+        .github/workflows/ci.yaml
     branches:
       - master
 
@@ -27,4 +28,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: avijolite/python-app:${SHORT_SHA}
+          tags: avijolite/python-app:$(echo ${{ github.sha }} | cut -c1-6)
