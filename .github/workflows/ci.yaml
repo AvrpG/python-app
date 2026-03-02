@@ -18,8 +18,13 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
+        name: Extract short SHA
+        run: |
+          echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-6)" >> $GITHUB_ENV
+
+      -
         name: Build and push
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: avijolite/python-app:${GITHUB_SHA::6}
+          tags: avijolite/python-app:${SHORT_SHA}
