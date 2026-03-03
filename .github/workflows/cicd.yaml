@@ -1,4 +1,4 @@
-name: ci
+name: cicd
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
       - master
 
 jobs:
-  docker:
-    runs-on: self-hosted
+  ci:
+    runs-on: ubuntu-latest
     steps:
       -
         name: Login to Docker Hub
@@ -29,3 +29,17 @@ jobs:
         with:
           push: true
           tags: avijolite/python-app:${{ env.SHORT_SHA }}
+  
+  cd:
+    runs-on: self-hosted
+    needs: ci
+    steps:
+      -
+        name: sync ArgoCD application
+        run: |
+          argocd login https://argocd-server.argocd \
+           --insecure \
+           --username ${{ vars.ARGOCD_USERNAME }} \
+           --password ${{ secrets.ARGOCD_PASSWORD }} \
+           --grpc-web
+          argocd app sync python-app
