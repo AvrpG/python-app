@@ -45,7 +45,7 @@ jobs:
       -
         name: sync ArgoCD application
         run: |
-          argocd login https://argocd-server.argocd \
+          argocd login argocd-server.argocd \
            --insecure \
            --username ${{ vars.ARGOCD_USERNAME }} \
            --password ${{ secrets.ARGOCD_PASSWORD }} \
