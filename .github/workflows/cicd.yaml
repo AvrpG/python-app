@@ -33,6 +33,8 @@ jobs:
       -
         name: Update ArgoCD application image
         run: |
+          pwd
+          cd ..
           ls -la
           sed -i "s|tag: dynamic_image_tag|tag: ${{ env.SHORT_SHA }}|g" values.yaml
           cat values.yaml
