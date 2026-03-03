@@ -29,6 +29,12 @@ jobs:
         with:
           push: true
           tags: avijolite/python-app:${{ env.SHORT_SHA }}
+
+      -
+        name: Update ArgoCD application image
+        run: |
+          sed -i "s|tag: dynamic_image_tag|tag: ${{ env.SHORT_SHA }}|g" charts/python-app/values.yaml
+          cat charts/python-app/values.yaml
   
   cd:
     runs-on: self-hosted
