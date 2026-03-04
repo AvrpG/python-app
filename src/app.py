@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/api/v1/details')
 def details():
     return jsonify({"time": datetime.now().strftime("%I:%M:%S %p on %B %d, %Y"),
-                    "message": "This is the endpoint for details API  -- testing ARGO deployment", "host": socket.gethostname()}), 200
+                    "message": "This is the endpoint for details API  -- testing ARGO deployment is successful !!! <3 <3 <3", "host": socket.gethostname()}), 200
 
 @app.route('/api/v1/health')
 def health():
