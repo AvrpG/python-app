@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: avijolite/python-app
   pullPolicy: IfNotPresent
-  tag: 9db809
+  tag: ad5b65
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
