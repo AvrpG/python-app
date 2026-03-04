@@ -44,6 +44,9 @@ jobs:
           targetBranch: master
           createPR: false
           message: 'Update image tag to ${{ env.SHORT_SHA }}'
+          token: ${{ secrets.TOKEN_GITHUB }}
+          commitUserName: github-actions[bot]
+          commitUserEmail: github-actions[bot]@users.noreply.github.com
   
   cd:
     runs-on: self-hosted
