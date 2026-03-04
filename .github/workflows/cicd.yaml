@@ -40,8 +40,8 @@ jobs:
           valueFile: 'charts/python-app/values.yaml'
           propertyPath: 'image.tag'
           value: ${{ env.SHORT_SHA }}
-          branch: update-image-tag/${{ github.sha }}
-          targetBranch: master
+          # branch: update-image-tag/${{ github.sha }}
+          branch: master
           createPR: false
           message: 'Update image tag to ${{ env.SHORT_SHA }}'
           token: ${{ secrets.TOKEN_GITHUB }}
