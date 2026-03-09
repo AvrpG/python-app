@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: python-app
+  description: An app to display time written in Python.
+  annotations:
+    github.com/project-slug: AvrpG/python-app
+spec:
+  type: service
+  owner: development
+  lifecycle: experimental
