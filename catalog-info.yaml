@@ -5,6 +5,7 @@ metadata:
   description: An app to display time written in Python.
   annotations:
     github.com/project-slug: AvrpG/python-app
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   owner: development
